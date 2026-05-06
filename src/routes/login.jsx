@@ -20,8 +20,8 @@ export default function Login() {
     getValues,
   } = useForm({ defaultValues: { name: "" }, mode: "onTouched" });
 
-function submit (data){
-authService.login({username:data.username,password:data.password}).then((data)=>{ tokenStore.set(data);
+async function submit (data){
+await authService.login({username:data.username,password:data.password}).then((data)=>{ tokenStore.set(data);
   console.log(data)})
 .catch((error)=>{
  const data = error.response?.data?.message
