@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { authService } from '../services/authService';
 import { api } from '../services/api';
@@ -17,15 +17,16 @@ export default function Register() {
     handleSubmit,
     formState: { errors, isSubmitSuccessful, isSubmitting },
     getValues,
-  } = useForm({ defaultValues: { name: "" }, mode: "onTouched" });
-
+  } = useForm({ defaultValues: { username: "" }, mode: "onTouched" });
+const [value,setValue]=useState(false)
   async  function submit(data) {
 await authService.register({username:data.name,email:data.email,password:data.password,role:data.role}).then((value)=>{
+ 
   tokenStore.set(value);
   console.log(value)
 })
 .catch((error)=>{
- 
+  setValue(true)
   const data = error.response?.data?.message
   console.log(error.response?.data?.message)
 throw error
@@ -41,10 +42,16 @@ if(isSubmitSuccessful){
 
   return (
     
-
-
-
 <div className="login-page">
+        {value && <div className="error-toast">
+  <div className="error-icon">⚠️</div>
+  <div>
+    <h2 className="error-title">Registration Failed</h2>
+    <p className="error-text">
+      Invalid credentials. Please try again.
+    </p>
+  </div>
+</div>}
       <form className="login-form" onSubmit={handleSubmit(submit)}>
         <div className="form-header">
           <h1>User Registration</h1>

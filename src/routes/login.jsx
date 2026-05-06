@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { authService } from '../services/authService';
 import { api } from '../services/api';
@@ -18,19 +18,20 @@ export default function Login() {
     handleSubmit,
     formState: { errors, isSubmitSuccessful, isSubmitting },
     getValues,
-  } = useForm({ defaultValues: { name: "" }, mode: "onTouched" });
+  } = useForm({ defaultValues: { username: "" }, mode: "onTouched" });
+const [kuchh,setData]=useState(false)
 
 async function submit (data){
 await authService.login({username:data.username,password:data.password}).then((data)=>{ tokenStore.set(data);
+   tokenStore.set(data);
   console.log(data)})
 .catch((error)=>{
- const data = error.response?.data?.message
-  console.log(error.response?.data?.message)
-
+setData(true)
+  console.log(error.message)
+  console.log(error.toJSON())
     throw error
 })
 }
-
 
   if(isSubmitSuccessful){
     return (
@@ -38,8 +39,19 @@ await authService.login({username:data.username,password:data.password}).then((d
     )
   }
 
+
   return  (
+    
     <div className="login-page">
+      {kuchh && <div className="error-toast">
+  <div className="error-icon">⚠️</div>
+  <div>
+    <h2 className="error-title">Login Failed</h2>
+    <p className="error-text">
+      Invalid credentials. Please try again.
+    </p>
+  </div>
+</div>}
       <form className="login-form" onSubmit={handleSubmit(submit)}>
         <div className="form-header">
           <h1>User Login</h1>
@@ -65,7 +77,7 @@ await authService.login({username:data.username,password:data.password}).then((d
           <input
             type="username"
             className="form-input"
-            {...register("email", { required: "email is required" })}
+            {...register("username", { required: "username is required" })}
           />
            {errors.username && <span className="form-error">{errors.username.message}</span>}
         </label>

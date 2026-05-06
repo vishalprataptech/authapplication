@@ -9,7 +9,7 @@ export const authService = {
         return data;
     },
 
-    async login({email, password}){
+    async login({username, password}){
         const {data} = await api.post("/login", {username, password})
      
         return data
