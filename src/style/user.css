@@ -1,0 +1,127 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Background */
+.dashboard-body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1f1c2c, #928dab);
+  color: #fff;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Logo */
+.logo {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Buttons container */
+.nav-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* Buttons */
+.btn {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(6px);
+}
+
+/* Me button */
+.btn-me {
+  background: rgba(255,255,255,0.2);
+  color: white;
+}
+
+.btn-me:hover {
+  background: rgba(255,255,255,0.35);
+  transform: translateY(-2px);
+}
+
+/* Logout button */
+.btn-logout {
+  background: #ff4d6d;
+  color: white;
+}
+
+.btn-logout:hover {
+  background: #e63950;
+  transform: translateY(-2px);
+}
+
+/* Main container */
+.container {
+  padding: 40px;
+}
+
+/* Welcome card */
+.welcome-card {
+  background: rgba(255,255,255,0.1);
+  padding: 30px;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  margin-bottom: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.welcome-card h1 {
+  margin-bottom: 10px;
+}
+
+/* Grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* Card */
+.card {
+  background: rgba(255,255,255,0.1);
+  padding: 20px;
+  border-radius: 14px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.02);
+}
+
+/* Card button */
+.card-btn {
+  margin-top: 12px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  background: #667eea;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card-btn:hover {
+  background: #5a67d8;
+}

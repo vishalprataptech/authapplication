@@ -1,0 +1,84 @@
+/* styles.css */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Card container */
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  color: white;
+  width: 320px;
+}
+
+.card h2 {
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+/* Buttons layout */
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Base button */
+.btn {
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* ⭐ Primary (center key button) */
+.primary {
+  background: #ff7a18;
+  background: linear-gradient(135deg, #ff7a18, #ffb347);
+  color: white;
+  font-weight: bold;
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(255, 122, 24, 0.4);
+}
+
+.primary:hover {
+  transform: scale(1.1);
+}
+
+/* Secondary */
+.secondary {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.secondary:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Danger */
+.danger {
+  background: rgba(255, 0, 0, 0.2);
+  color: #ffdddd;
+}
+
+.danger:hover {
+  background: rgba(255, 0, 0, 0.35);
+}
